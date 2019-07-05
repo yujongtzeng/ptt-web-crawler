@@ -1,8 +1,8 @@
-# ptt-web-crawler (PTT 網路版爬蟲) [![Build Status](https://travis-ci.org/jwlin/ptt-web-crawler.svg?branch=master)](https://travis-ci.org/jwlin/ptt-web-crawler)
+# ptt-web-crawler with search (PTT 網路版爬蟲) [![Build Status](https://travis-ci.org/jwlin/ptt-web-crawler.svg?branch=master)](https://travis-ci.org/jwlin/ptt-web-crawler)
 
 ### [English Readme](#english_desc)
-### [Live demo](http://app.castman.net/ptt-web-crawler)
-### [Scrapy 版本](https://github.com/afunTW/ptt-web-crawler) by afunTW
+
+This project adds searching keywords in titles feature to  [jwlin's ptt web crawler](https://github.com/jwlin/ptt-web-crawler). 
 
 特色
 
@@ -10,6 +10,7 @@
 * 過濾資料內空白、空行及特殊字元
 * JSON 格式輸出
 * 支援 Python 2.7, 3.4-3.6
+* 支援標題內關鍵字搜尋
 
 輸出 JSON 格式
 ```
@@ -82,6 +83,7 @@ python test.py
 ```
 
 ***
+This project adds he feature of searching keywords in titles to  [jwlin's ptt web crawler](https://github.com/jwlin/ptt-web-crawler). 
 
 <a name="english_desc"></a>ptt-web-crawler is a crawler for the web version of PTT, the largest online community in Taiwan. 
 
