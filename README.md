@@ -2,7 +2,11 @@
 
 ### [English Readme](#english_desc)
 
-This project adds searching keywords in titles feature to  [jwlin's ptt web crawler](https://github.com/jwlin/ptt-web-crawler). 
+加入搜尋標題關鍵字自 :  [jwlin's ptt web crawler](https://github.com/jwlin/ptt-web-crawler). 
+
+*This project is under construction. While adding the features of searching keywords and limit date range, the way PTT web 
+indexes the newest page is different--with keyword it's page 1 without keyword it's the last page. We couldn't find an elegant 
+way to unify these two cases so it might be necessary to write two cases seperately.*
 
 特色
 
@@ -11,6 +15,7 @@ This project adds searching keywords in titles feature to  [jwlin's ptt web craw
 * JSON 格式輸出
 * 支援 Python 2.7, 3.4-3.6
 * 支援標題內關鍵字搜尋
+* 支援日期範圍搜尋
 
 輸出 JSON 格式
 ```
@@ -44,8 +49,10 @@ This project adds searching keywords in titles feature to  [jwlin's ptt web craw
 ### 參數說明
 
 ```commandline
-python crawler.py -b 看板名稱 -i 起始索引 結束索引 (設為負數則以倒數第幾頁計算) 
+python crawler.py -b 看板名稱 -p 起始索引 結束索引 (設為負數則以倒數第幾頁計算) 
+python crawler.py -b 看板名稱 -p 起始索引 結束索引 -k 標題關鍵字
 python crawler.py -b 看板名稱 -a 文章ID 
+python crawler.py -b 看板名稱 -a 文章ID -k 標題關鍵字
 ```
 
 ### 範例
@@ -77,13 +84,9 @@ c = PttWebCrawler(as_lib=True)
 c.parse_articles(100, 200, 'PublicServan')
 ```
 
-### 測試
-```commandline
-python test.py
-```
-
 ***
-This project adds he feature of searching keywords in titles to  [jwlin's ptt web crawler](https://github.com/jwlin/ptt-web-crawler). 
+This project adds searching keywords in titles and limiting date range to 
+[jwlin's ptt web crawler](https://github.com/jwlin/ptt-web-crawler). 
 
 <a name="english_desc"></a>ptt-web-crawler is a crawler for the web version of PTT, the largest online community in Taiwan. 
 
@@ -91,8 +94,9 @@ This project adds he feature of searching keywords in titles to  [jwlin's ptt we
     optional arguments:
       -h, --help                  show this help message and exit
       -b BOARD_NAME               Board name
-      -i START_INDEX END_INDEX    Start and end index
+      -p START_INDEX END_INDEX    Start and end index
       -a ARTICLE_ID               Article ID
       -v, --version               show program's version number and exit
+      -k                          search keyword in title
 
 Output would be `BOARD_NAME-START_INDEX-END_INDEX.json` (or `BOARD_NAME-ID.json`)
